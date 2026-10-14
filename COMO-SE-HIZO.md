@@ -91,3 +91,18 @@ visible (cabeceras, pies, firma) no se toca.
   (ni visible, ni C2PA, ni metadatos, ni caracteres invisibles). No hay nada que quitar.
 - **No borrar el autor** de las propiedades: el usuario quiere conservarlo. La próxima vez,
   inspeccionar y, si no hay marcas de IA, devolver los originales sin limpiar.
+
+## 7. Caso: PDF informe mensual (14 oct 2026)
+
+Comprobaciones hechas (todas negativas → se devuelve el original, sin tocar):
+
+```bash
+python3 -I service/scripts/inspect_file.py X.pdf        # C2PA / metadatos IA
+pdfinfo X.pdf                                            # Author, Creator, Producer, XMP
+strings X.pdf | grep -i -E 'claude|anthropic|openai|c2pa|jumb'
+pdftotext X.pdf - | grep -i -E 'claude|generado|\bIA\b|marca de agua'
+pdfimages -list X.pdf                                    # imágenes incrustadas
+```
+
+Resultado: Creator/Producer vacíos, sin XMP, sin C2PA, sin caracteres invisibles,
+sin menciones a IA en el texto. Autor ("Alerce Real Estate Partners, S.L.") se conserva.
