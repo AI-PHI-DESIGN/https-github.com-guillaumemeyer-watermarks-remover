@@ -83,3 +83,11 @@ Archivos: 2 Word (`.docx`) y 1 Excel (`.xlsx`). Pasos seguidos:
 
 Ojo: la limpieza **borra el nombre del autor** de las propiedades del archivo. El texto
 visible (cabeceras, pies, firma) no se toca.
+
+### Aclaración posterior (mismo caso)
+
+- Lo que se buscaba era quitar marcas que delaten que el documento lo hizo Claude/IA.
+- Resultado: los Word/Excel generados por Claude **no llevan ninguna marca de agua de IA**
+  (ni visible, ni C2PA, ni metadatos, ni caracteres invisibles). No hay nada que quitar.
+- **No borrar el autor** de las propiedades: el usuario quiere conservarlo. La próxima vez,
+  inspeccionar y, si no hay marcas de IA, devolver los originales sin limpiar.
